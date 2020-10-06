@@ -128,7 +128,7 @@ const addEmployee = () => {
       {
         name: "roleId",
         type: "input",
-        message: "Enter employee's roleId",
+        message: "Enter employee's role Id",
       },
     ])
     .then(function (employeeInfo) {
@@ -231,12 +231,10 @@ const updateRole = () => {
           },
         ])
         .then(function (choice) {
-          console.log(choice);
           connection.query(
             `UPDATE employee SET role_id = ${choice.updateRole} WHERE id = ${choice.selectEmployee}`,
             function (err) {
               if (err) console.log(err);
-              console.log(choice);
               console.log("Role was Updated");
               initiate();
             }
@@ -266,12 +264,10 @@ const removeEmployee = () => {
           },
         ])
         .then(function (choice) {
-          console.log(choice);
           connection.query(
             `DELETE FROM employee WHERE id = ${choice.selectEmployee}`,
             function (err) {
               if (err) console.log(err);
-              console.log(choice);
               console.log("Employee was removed");
               initiate();
             }
